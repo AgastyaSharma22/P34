@@ -10,8 +10,8 @@ function preload(){
 
 function setup() {
   database = firebase.database();
-  createCanvas(500,500);
-  dog=createSprite(250,250,10,10);
+  createCanvas(1000,1000);
+  dog=createSprite(500,500,10,10);
   dog.addImage(dogImg);  
   
   foodStock=database.ref('Food');
@@ -27,7 +27,6 @@ function draw() {
   }
   drawSprites();
   //add styles here
-
 }
 function readStock(data){
   foodS=data.val();
