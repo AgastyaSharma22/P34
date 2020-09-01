@@ -20,13 +20,14 @@ function setup() {
 
 
 function draw() {  
-  background(46,139,87);
+  background(0,0,0);
   if(keyWentDown(UP_ARROW)){
     writeStock(foodS);
     dog.addImage(dogImg1);
   }
   drawSprites();
-  //add styles here
+  text("Press UP_ARROW to feed the dog!",100,20);
+  text("Food remaining:20",100,30);
 }
 function readStock(data){
   foodS=data.val();
