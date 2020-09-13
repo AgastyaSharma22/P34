@@ -10,24 +10,27 @@ function preload(){
 
 function setup() {
   database = firebase.database();
-  createCanvas(1000,1000);
-  dog=createSprite(500,500,10,10);
+  createCanvas(500,500);
+  dog=createSprite(250,300,100,100);
   dog.addImage(dogImg);  
-  
+  dog.scale=0.15;
   foodStock=database.ref('Food');
   foodStock.on("value",readStock);
 }
 
 
 function draw() {  
-  background(0,0,0);
+  background(46,140,87);
   if(keyWentDown(UP_ARROW)){
     writeStock(foodS);
     dog.addImage(dogImg1);
+    
   }
   drawSprites();
+  textSize(20);
+  stroke("black");
   text("Press UP_ARROW to feed the dog!",100,20);
-  text("Food remaining:20",100,30);
+  text("Food remaining:"+foodS,100,40);
 }
 function readStock(data){
   foodS=data.val();
